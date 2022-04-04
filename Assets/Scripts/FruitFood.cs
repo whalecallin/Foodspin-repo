@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FruitFood : MonoBehaviour
+public class FruitFood : Food
 {
-    // Start is called before the first frame update
-    void Start()
+    public override string GetFoodType()
     {
-        
+        return "Fruits";
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void RotateInPlace()
     {
-        
+        transform.Rotate(Vector3.down *(RotationSpeed * Time.deltaTime), Space.World);
     }
+    
+    
 }

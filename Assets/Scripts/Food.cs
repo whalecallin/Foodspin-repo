@@ -15,8 +15,6 @@ public abstract class Food : MonoBehaviour
     private float _dx = (TargetScale - InitScale)/FramesCount;
     private bool _upScale = true;
 
-
-    [SerializeField] public string foodName{ get; private set;}
     public abstract void RotateInPlace();
 
     public virtual string GetFoodType()
@@ -26,6 +24,7 @@ public abstract class Food : MonoBehaviour
 
     private void OnMouseOver()
     {
+        UIMain.Instance.UpdateFoodInfo(gameObject.name, GetFoodType());
         Debug.Log("On Mouse Over");
         StopCoroutine("Shrink");
         StartCoroutine("Enlarge");
@@ -37,6 +36,7 @@ public abstract class Food : MonoBehaviour
         StopCoroutine("Enlarge");
         StartCoroutine("Shrink");
         Debug.Log(" Exit");
+        UIMain.Instance.ClearFoodInfo();
     }
 
     private IEnumerator Enlarge()

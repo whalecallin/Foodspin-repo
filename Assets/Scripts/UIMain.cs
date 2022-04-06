@@ -31,13 +31,13 @@ public class UIMain : MonoBehaviour
         SceneManager.LoadScene("menu");
     }
 
-    public void UpdateFoodInfo(string fName, string fType)
+    public void UpdateFoodInfo(string fName, string fType) 
     {
         foodName.text = fName;
         foodType.text = fType;
     }
 
-    public void ClearFoodInfo()
+    public void UpdateFoodInfo() //POLYMORPHISM
     {
         foodName.text = "";
         foodType.text = "";

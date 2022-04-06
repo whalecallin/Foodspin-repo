@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarbFood : Food
+public class CarbFood : Food // INHERITANCE
 {
- public override string GetFoodType()
- {
-     return "Carbs";
- }
 
-   public override void RotateInPlace()
+    CarbFood()
+    {
+        m_foodType = "Carbs";
+        RotationSpeed = 20f;
+    }
+
+   public override void RotateInPlace() // POLYMORPHISM
     {
         transform.Rotate(Vector3.up *(RotationSpeed * Time.deltaTime), Space.World);
     }

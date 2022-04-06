@@ -16,15 +16,18 @@ public abstract class Food : MonoBehaviour
     private bool _upScale = true;
 
     public abstract void RotateInPlace();
+    
+    protected string m_foodType;
 
-    public virtual string GetFoodType()
+    public string foodType // ENCAPSULATION
     {
-        return "Food";
+        get{return m_foodType;}
+        set {foodType = m_foodType;}
     }
 
     private void OnMouseOver()
     {
-        UIMain.Instance.UpdateFoodInfo(gameObject.name, GetFoodType());
+        UIMain.Instance.UpdateFoodInfo(gameObject.name, foodType);
         Debug.Log("On Mouse Over");
         StopCoroutine("Shrink");
         StartCoroutine("Enlarge");
@@ -36,7 +39,7 @@ public abstract class Food : MonoBehaviour
         StopCoroutine("Enlarge");
         StartCoroutine("Shrink");
         Debug.Log(" Exit");
-        UIMain.Instance.ClearFoodInfo();
+        UIMain.Instance.UpdateFoodInfo();
     }
 
     private IEnumerator Enlarge()

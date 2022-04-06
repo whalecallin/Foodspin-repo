@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ProteinFood : Food
+public class ProteinFood : Food // INHERITANCE
 {
-    void Start()
+    ProteinFood()
     {
-        //RotationSpeed = 5;
+        m_foodType = "Protein";
+        RotationSpeed = 10f;
     }
- public override string GetFoodType()
- {
-     return "Protein";
- }
 
-   public override void RotateInPlace()
+   public override void RotateInPlace() // POLYMORPHISM
     {
         transform.Rotate(Vector3.up *(RotationSpeed * Time.deltaTime), Space.World);
     }
